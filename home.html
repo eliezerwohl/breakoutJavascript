@@ -7,10 +7,10 @@
 <body>
 
 
-<button onclick="move('up')">UP</button>
-	</br><button onclick="move('left')">LEFT</button><button onclick="move('right')">RIGHT</button>
+<button onmouseup="stopMove()" onmousedown="move('up')">UP</button>
+	</br><button onmouseup="stopMove()" onmousedown="move('left')">LEFT</button><button onmouseup="stopMove()" onmousedown="move('right')">RIGHT</button>
 	<br>
-<button onclick="move('down')">DOWN</button>
+<button onmouseup="stopMove()" onmousedown="move('down')">DOWN</button>
 
 
 
