@@ -1,13 +1,19 @@
 function component(width, height, color, x, y){
 	this.width= width;
 	this.height = height;
+	this.speedX=0;
+	this.speedY=0;
 	this.x = x;
 	this.y = y;
 	this.update = function(){
 		ctx = myGameArea.context;
 		ctx.fillStyle = color;
 		ctx.fillRect(this.x, this.y, this.width, this.height)
-	}	
+	},
+	this.newPos = function(){
+		this.x += this.speedX;
+		this.y += this.speedY;
+	}
 }
 
 function startGame(){
@@ -33,8 +39,23 @@ var myGameArea = {
 
 function updateGameArea(){
 	myGameArea.clear()
-	myGamePiece.x += 1;
+	myGamePiece.newPos();
+	// myGamePiece.x += 1;
 	myGamePiece.update()
 }
 
+function move(move){
+	if (move === "right"){
+		myGamePiece.speedX +=1;
+	}
+	else if (move === "left"){
+		myGamePiece.speedX -=1;
+	}
+	else if(move === "up"){
+		myGamePiece.speedY -=1;
+	}
+	else if(move === "down"){
+		myGamePiece.speedY +=1;
+	}
+}
 startGame()
